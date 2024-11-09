@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERD Apotek Pelita</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        .container {
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #2c3e50;
+            border-radius: 10px;
+        }
+        
+        .title {
+            text-align: center;
+            color: #2c3e50;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+        }
+        
+        .title h1 {
+            font-size: 24px;
+            margin: 0;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Entity Relationship Diagram - APOTEK PELITA</h1>
+            <div class="subtitle">Sistem Manajemen Database Apotek (312210264 FARDHILAN GALANG PRIARTO)</div>
+        </div>
+        <div class="mermaid">
+        erDiagram
+            KARYAWAN ||--o{ TRANSAKSI : melayani
+            OBAT ||--o{ DETAIL_TRANSAKSI : memiliki
+            TRANSAKSI ||--|{ DETAIL_TRANSAKSI : mencakup
+            SUPPLIER }|--|{ OBAT : memasok
+            PELANGGAN ||--o{ TRANSAKSI : melakukan
+            KATEGORI_OBAT ||--|{ OBAT : mengkategorikan
+
+            KARYAWAN {
+                int karyawan_id PK
+                string nama
+                string alamat
+                string no_telepon
+                string jabatan
+                date tanggal_masuk
+                decimal gaji
+            }
+
+            OBAT {
+                int obat_id PK
+                int kategori_id FK
+                int supplier_id FK
+                string nama_obat
+                string deskripsi
+                decimal harga_beli
+                decimal harga_jual
+                int stok
+                date tanggal_kadaluarsa
+            }
+
+            TRANSAKSI {
+                int transaksi_id PK
+                int karyawan_id FK
+                int pelanggan_id FK
+                date tanggal_transaksi
+                time waktu_transaksi
+                decimal total_harga
+                string metode_pembayaran
+                string status
+            }
+
+            SUPPLIER {
+                int supplier_id PK
+                string nama_supplier
+                string alamat
+                string no_telepon
+                string email
+                string npwp
+                string nama_kontak
+            }
+
+            PELANGGAN {
+                int pelanggan_id PK
+                string nama
+                string alamat
+                string no_telepon
+                string email
+                date tanggal_daftar
+            }
+
+            KATEGORI_OBAT {
+                int kategori_id PK
+                string nama_kategori
+                string deskripsi
+                string rak_penyimpanan
+            }
+
+            DETAIL_TRANSAKSI {
+                int detail_id PK
+                int transaksi_id FK
+                int obat_id FK
+                int jumlah
+                decimal harga_satuan
+                decimal subtotal
+            }
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            er: {
+                diagramPadding: 20,
+                fontSize: 14,
+                labelPosition: 'center',
+                minEntityWidth: 100,
+                minEntityHeight: 75,
+                entityPadding: 15
+            }
+        });
+    </script>
+</body>
+</html>
