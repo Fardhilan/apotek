@@ -1,9 +1,15 @@
 Entitas & Hubungannya:
+
 KARYAWAN: Petugas apotek yang melayani pelanggan
+
 PELANGGAN: Pembeli obat di apotek
+
 OBAT: Produk yang dijual di apotek
+
 SUPPLIER: Pemasok obat ke apotek
+
 TRANSAKSI: Pencatatan pembelian obat
+
 DETAIL_TRANSAKSI: Rincian obat yang dibeli
 KATEGORI_OBAT: Pengelompokan jenis obat
 Alur Bisnis Utama:
