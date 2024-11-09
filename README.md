@@ -1,3 +1,5 @@
+![Uploading 312210264_FARDHILANGALANGPRIARTO_UTS_MANAJEMENBASISDATA_ERDAPOTEKPELITA.JPG…]()
+
 1. Entitas & Hubungannya:
 - KARYAWAN: Petugas apotek yang melayani pelanggan
 - PELANGGAN: Pembeli obat di apotek
